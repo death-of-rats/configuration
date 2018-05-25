@@ -8,26 +8,34 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
+Plugin 'lervag/vimtex'
+Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 filetype plugin indent on
 
 set encoding=utf-8
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='dark'
-let g:airline_powerline_fonts = 1
-
 set exrc
 set secure
-
-set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set noexpandtab
-syntax on
+set expandtab
+set smarttab
+set autoindent
+set si "smart indent
+set nowrap
+set hlsearch
+set ruler
 set number
 set colorcolumn=110
-highlight ColorColumn ctermbg=darkgray
+highlight ColorColumn ctermbg=blue
+syntax on
 
+" tags
+set tags=./tags;/
+
+set showmatch
+set comments=s1:/*,mb:\ *,elx:\ */
+"
 let $path.="src/include,/usr/include/AL,"
 set makeprg=make\ -C\ ../build\ -j9
 nnoremap <F4> :make!<cr>
@@ -44,3 +52,9 @@ let NERDTreeShowHidden=1
 let g:nerdtree_tabs_open_on_console_startup=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='dark'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1

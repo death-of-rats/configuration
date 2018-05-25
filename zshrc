@@ -97,3 +97,6 @@ export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpg-connect-agent updatestartuptty /bye
 
+
+# added by travis gem
+[ -f /home/jurek/.travis/travis.sh ] && source /home/jurek/.travis/travis.sh
